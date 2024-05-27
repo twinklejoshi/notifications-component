@@ -4,6 +4,7 @@ export enum NotificationTypes {
   WARNING = "WARNING",
 }
 
+//mock assumption of the types, in realtime this is something we should get from backend
 export enum MetricTypes {
   INGEST = "ingest",
   RETAIN = "retain",

@@ -9,6 +9,11 @@ interface NotificationProps {
 }
 
 /*
+ * Assumption: Types of notifications are success, warning and failed,
+ * Based on those types, icons will be displayed
+ */
+
+/*
  * Assumption: By Read badge it means a badge on notification will show 'Read' or 'Unread',
  * initially all notifications will be unread and when marked as read, badge will turn to Read and disappear
  */
@@ -22,6 +27,7 @@ interface NotificationProps {
 
 /*
  * Edge case 2: For no notifications i.e. when notifications.length === 0
+ * Currently for mark all as read, the same message is displayed, this can be modified by providing custom message specific to that scenario
  * Custom no notification message will be displayed
  */
 
@@ -179,18 +185,18 @@ export const Notifications: React.FC<NotificationProps> = ({
         )}
 
         {currentIndex + rowsPerPage < notifications.length && (
-          <div className="panel-button">
+          <div className="panel-button-container">
             {" "}
-            <button className="see-more-btn" onClick={seeMore}>
+            <button className="panel-button" onClick={seeMore}>
               See More
             </button>
           </div>
         )}
 
-        {currentIndex + rowsPerPage > notifications.length &&
+        {currentIndex + rowsPerPage >= notifications.length &&
           notifications.length !== 0 && (
-            <div className="panel-button">
-              <button className="see-more-btn" onClick={reloadNotifications}>
+            <div className="panel-button-container">
+              <button className="panel-button" onClick={reloadNotifications}>
                 Reload notifications
               </button>
             </div>

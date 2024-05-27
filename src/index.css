@@ -1,11 +1,13 @@
 :root {
   --primaryBgColor: #e7e9eb;
   --secondaryBgColor: #000000;
+  --actionsColor: #0d62a9;
   --mainFontSize: 2.5vh;
   --secondaryFontSize: 2vh;
   --primaryFontColor: #ffffff;
   --secondaryFontColor: #000000;
   --shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.3);
+  --font-weight: 500;
 }
 
 body {

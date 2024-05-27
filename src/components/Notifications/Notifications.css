@@ -17,7 +17,7 @@
 }
 
 .notification-panel-header .notification-panel-header-title h3 {
-  font-weight: 500;
+  font-weight: var( --font-weight);
   padding: 0;
   margin: 0;
 }
@@ -29,13 +29,14 @@
   flex-direction: row;
   align-items: center;
   justify-content: flex-end;
-  gap: 1rem;
+  gap: 0.5rem;
   font-size: 1.8vh;
-  font-weight: 500;
+  font-family: Helvetica, Arial, sans-serif;
+  font-weight: var( --font-weight);
 }
 
 .notification-panel-header .notification-panel-header-actions button {
-  color: #0d62a9;
+  color: var(--actionsColor);
   background: none;
   border: none;
   padding: 0;
@@ -69,7 +70,7 @@ hr {
   padding-top: 2rem;
   justify-content: center;
   align-items: center;
-  font-size: 2vh;
+  font-size: var(--secondaryFontSize);
   gap: 0.5rem;
 }
 
@@ -119,7 +120,7 @@ hr {
   align-items: center;
   width: 100%;
   gap: 0.5rem;
-  font-size: 2vh;
+  font-size: var(--secondaryFontSize);
 }
 
 .fa-check-circle {
@@ -133,7 +134,7 @@ hr {
 }
 
 .notification-list .notification-list-panel .panel-info .title {
-  font-weight: 500;
+  font-weight: var(--font-weight);
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -160,7 +161,7 @@ hr {
   flex-direction: row;
   font-size: 1.8vh;
   font-family: Helvetica, Arial, sans-serif;
-  font-weight: 500;
+  font-weight:  var(--font-weight);
   flex-wrap: wrap;
 }
 
@@ -178,19 +179,23 @@ hr {
   padding: 0;
 }
 
-.panel-button{
+.panel-button-container{
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 1rem;
 
 }
-.see-more-btn {
-  background-color: #007BFF;
+.panel-button {
+  background-color: black;
   color: white;
   border: none;
   padding: 10px;
   cursor: pointer;
   border-radius: 4px;
   text-align: center;
+}
+
+.panel-button:hover {
+  opacity: 0.8;
 }

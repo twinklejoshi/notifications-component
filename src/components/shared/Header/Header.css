@@ -1,0 +1,26 @@
+.header {
+  height: 10vh;
+  width: 100%;
+  display: flex;
+  color: var(--primaryFontColor);
+  background-color: var(--secondaryBgColor);
+}
+
+.header .header-title {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+.header .header-title h1 {
+  font-weight: 500;
+}
+
+.header .header-drawer-container {
+  height: 100%;
+  float: right;
+  width: 10vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}

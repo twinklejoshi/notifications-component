@@ -88,12 +88,11 @@ export const Notifications: React.FC<NotificationProps> = ({
 
   const handleMarkAsRead = () => {
     if (recordId !== null) {
-      const newData = [...notifications];
-      //useMarkProvidedCustomerRecordsRead(orgId, newData[deletingIndex].recordId ) => This method will be called to mark particular notification as read in backend
-      const updatedData = newData.filter(
+      const newData = [...notifications].filter(
         (notification) => notification.recordId !== recordId
       );
-      setNotifications(updatedData);
+      //useMarkProvidedCustomerRecordsRead(orgId, newData[deletingIndex].recordId ) => This method will be called to mark particular notification as read in backend
+      setNotifications(newData);
       setRecordId(null);
     }
   };
@@ -133,6 +132,7 @@ export const Notifications: React.FC<NotificationProps> = ({
           loadRows.map((notification, index) => {
             return (
               <div
+                key={notification.recordId}
                 className={`notification-list-panel ${
                   recordId === notification.recordId ? "fade-out" : ""
                 }`}

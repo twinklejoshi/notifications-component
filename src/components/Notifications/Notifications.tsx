@@ -20,7 +20,7 @@ interface NotificationProps {
 
 /*
  * Edge case 1: If notification title/description is more in length, then ellipses will be shown
- * Customer can click on the notification to navigate to the metrics and look for details
+ * Customer can click on the notification to navigate to the metrics and look for details. Notification will be shown in a banner on the metrics page
  * or Tooltip can be added in order to display the whole message
  * or clicking on ellipses can expand the notification panel to display the text, it is assumed that the message sent by the backend will be within the length range
  */
@@ -85,8 +85,12 @@ export const Notifications: React.FC<NotificationProps> = ({
   const openInNewTab = (notification: Notification) => {
     const url =
       window.location.origin + `/usage-metrics/${notification.metrics}`;
-    let newTab = window.open(url, "_blank")!;
-    newTab["notification"] = notification;
+    let newTab = window.open(url, "_blank");
+    if (newTab) {
+      newTab["notification"] = notification;
+    } else {
+      console.error("Failed to open new tab");
+    }
   };
 
   const handleMarkAsRead = () => {
@@ -166,7 +170,12 @@ export const Notifications: React.FC<NotificationProps> = ({
             );
           })
         ) : isLoading && !error && notifications.length === 0 ? (
-          <div>Loading..... </div>
+          <div className="loader">
+            <div>
+              <strong>Loading....</strong>
+            </div>
+            <div className="loading"></div>
+          </div>
         ) : (
           <div className="no-notifications">
             <i className="fa fa-exclamation-triangle" aria-hidden="true"></i>

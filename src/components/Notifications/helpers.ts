@@ -1,23 +1,3 @@
-import {
-  failedNotificationTypeIconClassName,
-  successNotificationTypeIconClassName,
-  warningNotificationTypeIconClassName,
-} from "../../utils";
-import { NotificationTypes } from "./types";
-
-export const getNotificationTypeIconClassName = (
-  notificationType: NotificationTypes
-) => {
-  switch (notificationType) {
-    case NotificationTypes.SUCCESS:
-      return successNotificationTypeIconClassName;
-    case NotificationTypes.WARNING:
-      return warningNotificationTypeIconClassName;
-    case NotificationTypes.FAILED:
-      return failedNotificationTypeIconClassName;
-  }
-};
-
 export const notificationsMockData = [
   {
     recordId: 1,

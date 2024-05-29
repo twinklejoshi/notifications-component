@@ -17,7 +17,7 @@
 }
 
 .notification-panel-header .notification-panel-header-title h3 {
-  font-weight: var( --font-weight);
+  font-weight: var(--font-weight);
   padding: 0;
   margin: 0;
 }
@@ -32,7 +32,7 @@
   gap: 0.5rem;
   font-size: 1.8vh;
   font-family: Helvetica, Arial, sans-serif;
-  font-weight: var( --font-weight);
+  font-weight: var(--font-weight);
 }
 
 .notification-panel-header .notification-panel-header-actions button {
@@ -123,16 +123,6 @@ hr {
   font-size: var(--secondaryFontSize);
 }
 
-.fa-check-circle {
-  color: green;
-}
-.fa-exclamation-triangle {
-  color: orange;
-}
-.fa-times-circle {
-  color: #a70808;
-}
-
 .notification-list .notification-list-panel .panel-info .title {
   font-weight: var(--font-weight);
   overflow: hidden;
@@ -161,7 +151,7 @@ hr {
   flex-direction: row;
   font-size: 1.8vh;
   font-family: Helvetica, Arial, sans-serif;
-  font-weight:  var(--font-weight);
+  font-weight: var(--font-weight);
   flex-wrap: wrap;
 }
 
@@ -179,12 +169,11 @@ hr {
   padding: 0;
 }
 
-.panel-button-container{
+.panel-button-container {
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 1rem;
-
 }
 .panel-button {
   background-color: black;

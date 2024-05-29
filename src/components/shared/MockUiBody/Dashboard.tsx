@@ -10,6 +10,7 @@ import { Board } from "@highcharts/dashboards";
 import { useEffect } from "react";
 import { Cell } from "./Cell";
 import { Row } from "./Row";
+import { Notification, NotificationInfo } from "../../Notifications";
 
 Dashboards.HighchartsPlugin.custom.connectHighcharts(Highcharts);
 Dashboards.DataGridPlugin.custom.connectDataGrid(DataGrid);
@@ -293,13 +294,22 @@ const config: Board.Options = {
   ],
 };
 
-export const MockDashboard = () => {
+interface MockDashboardProps {
+  notification?: Notification;
+}
+
+export const MockDashboard = ({ notification }: MockDashboardProps) => {
   useEffect(() => {
     Dashboards.board("container", config);
   }, []);
 
   return (
     <div className="mockBody">
+      {notification && (
+        <div className="notification-banner">
+          <NotificationInfo notification={notification} />
+        </div>
+      )}
       <div id="container">
         <Row>
           <div id="kpi-wrapper">

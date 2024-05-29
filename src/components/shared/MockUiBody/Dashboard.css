@@ -6,6 +6,36 @@
   margin: 2rem;
 }
 
+.notification-banner {
+  margin: 1rem 0;
+  padding: 1rem;
+  text-align: left;
+  background: #cfcfcf;
+  border: 3px solid black;
+  border-radius: 1rem;
+}
+
+.notification-banner .panel-info {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+  gap: 0.5rem;
+  font-size: var(--secondaryFontSize);
+}
+
+.notification-banner .panel-info .title {
+  font-weight: var(--font-weight);
+  overflow: hidden;
+}
+
+.notification-banner .panel-description p {
+  overflow: hidden;
+  margin: 0.5vh 0;
+  font-size: 1.9vh;
+  font-family: Helvetica, Arial, sans-serif;
+}
+
 #container {
   padding: 10px;
   background-color: var(--highcharts-neutral-color-5);

@@ -1,8 +1,8 @@
 import { useMemo, useState } from "react";
 import "./Notifications.css";
 import { useAllCustomerUnreadRecords } from "./services";
-import { MetricTypes, Notification } from "./types";
-import { getNotificationTypeIconClassName } from "./helpers";
+import { Notification } from "./types";
+import { NotificationInfo } from "./NotificationInfo";
 
 interface NotificationProps {
   onCloseDrawer?: () => void;
@@ -81,9 +81,12 @@ export const Notifications: React.FC<NotificationProps> = ({
   };
 
   //clicking notification will open usage metrics page in new tab with param as ":metrics" provided in Notification payload
-  const openAboutInNewTab = (metrics: MetricTypes) => {
-    const url = window.location.origin + `/usage-metrics/${metrics}`;
-    window.open(url, "_blank");
+  // passing notification to the Usage metrics component will display notification title and description in order to view them completely if chars are more in length
+  const openInNewTab = (notification: Notification) => {
+    const url =
+      window.location.origin + `/usage-metrics/${notification.metrics}`;
+    let newTab = window.open(url, "_blank")!;
+    newTab["notification"] = notification;
   };
 
   const handleMarkAsRead = () => {
@@ -138,24 +141,11 @@ export const Notifications: React.FC<NotificationProps> = ({
                 }`}
                 onClick={() => {
                   handleReadIndex(notification.recordId);
-                  openAboutInNewTab(notification.metrics);
+                  openInNewTab(notification);
                 }}
                 onAnimationEnd={handleMarkAsRead}
               >
-                <div className="panel-info">
-                  <div className="icon">
-                    <i
-                      className={getNotificationTypeIconClassName(
-                        notification.type
-                      )}
-                      aria-hidden="true"
-                    ></i>
-                  </div>
-                  <div className="title">{notification.title}</div>
-                </div>
-                <div className="panel-description">
-                  <p>{notification.description}</p>
-                </div>
+                <NotificationInfo notification={notification} />
                 <div className="panel-actions">
                   <div className="badge">
                     <p>{notification.isRead ? "Read" : "Unread"}</p>

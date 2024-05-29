@@ -11,11 +11,12 @@ import { Header, MockDashboard } from "../shared";
 export const UsageMetricsPage: React.FC = () => {
   const param = useParams()["metrics"]!;
   const metrics = param.charAt(0).toUpperCase() + param.slice(1);
+  const notification = window["notification"];
 
   return (
     <div>
       <Header title={metrics} showNotificationBtn={false} />
-      <MockDashboard />
+      <MockDashboard notification={notification} />
     </div>
   );
 };
